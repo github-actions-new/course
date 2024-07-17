@@ -2,12 +2,25 @@ name: new workflow
 on: [push]
 
 jobs:
-  run-shell-commands:
-      runs-on: ubuntu-latest
-      steps:
+    run-shell-commands:
+        runs-on: ubuntu-latest
+        steps:
         - name: echo a string 
           run: echo "hello"
         - name: multiline command
           run: |
             node -v
             npm -v 
+            parallel-job-macos:
+                run-on: macos-latest
+                steps: 
+                    - name: view SW version 
+                        run: sw_vers
+                    dependent-job: 
+                        runs-on: windows-lates
+                        needs: run-shell-commands
+                        steps:
+                            - name: echo a string
+                                run: write-output "window string"
+                            - name: error step
+                                run: doesnotexists
