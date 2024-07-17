@@ -13,20 +13,20 @@ jobs:
           ls -a
           echo $GTIHUB_SHA
           echo $GITHUB_REPOSITORY
-          echo $GITHUB_WORKS
-  display-wd-inof-windows:
+          echo $GITHUB_WORKSPACE
+  display-wd-info-windows:
     runs-on: windows-latest
     defaults:
       run:
         shell: pwsh
     steps:
       - name: display working dir and list of files
-        run: 
+        run: |
           Get-Location
           dir
           echo $env:GTIHUB_SHA
           echo $env:GITHUB_REPOSITORY
-          echo $env:GITHUB_WORKS
+          echo $env:GITHUB_WORKSPACE
       - name: python shell
         run: |
           import platform
