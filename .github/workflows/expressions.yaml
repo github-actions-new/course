@@ -10,11 +10,11 @@ jobs:
         id: expressions
         run: !
           echo ${{ 1 }}
-          echo ${{ 'this is a string' }}
-          echo ${{ null }}
+          echo '${{ 'this is a string' }}'
+          echo '${{ null }}'
           echo ${{ true }}
           echo ${{ 1 > 2 }}
-          echo ${{ 'string'  == 'String' }}
+          echo '${{ 'string'  == 'String' }}'
           echo ${{ true && false }}
           echo ${{ true || (false && true) }}
       - name: Dump Contexts
