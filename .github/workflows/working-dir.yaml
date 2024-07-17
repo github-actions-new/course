@@ -1,0 +1,33 @@
+name: working dirs & shells
+on: [push]
+defaults:
+  run:
+    shell: bash
+jobs: 
+  display-wd-info: 
+    runs-on: ununtu-latest
+    steps:
+      - name: display working dir and list of files
+        run: 
+          pwd
+          ls -a
+          echo $GTIHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKS
+  display-wd-inof-windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: display working dir and list of files
+        run: 
+          Get-Location
+          dir
+          echo $env:GTIHUB_SHA
+          echo $env:GITHUB_REPOSITORY
+          echo $env:GITHUB_WORKS
+      - name: python shell
+        run: |
+          import platform
+          print(platform.proccessor())
