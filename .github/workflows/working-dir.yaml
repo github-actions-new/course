@@ -30,4 +30,4 @@ jobs:
       - name: python shell
         run: |
           import platform
-          print(platform.proccessor())
+          print(platform.proccessor(())
