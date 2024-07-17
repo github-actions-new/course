@@ -22,5 +22,5 @@ jobs:
     steps:
       - name: echo a string
         run: write-output "window string"
-      - name: error step
-        run: doesnotexits
+    #   - name: error step
+    #     run: doesnotexits
