@@ -11,9 +11,7 @@ jobs:
         run: 
           pwd
           ls -a
-          echo $GTIHUB_SHA
-          echo $GITHUB_REPOSITORY
-          echo $GITHUB_WORKSPACE
+          echo "hello"
   display-wd-info-windows:
     runs-on: windows-latest
     defaults:
