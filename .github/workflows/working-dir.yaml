@@ -27,7 +27,3 @@ jobs:
           echo $env:GTIHUB_SHA
           echo $env:GITHUB_REPOSITORY
           echo $env:GITHUB_WORKSPACE
-      - name: python shell
-        run: |
-          import platform
-          print(platform.proccessor(())
