@@ -1,3 +1,54 @@
+# name: Expressions & Contexts
+# on: [push, pull_request, issues, workflow_dispatch]
+# jobs:
+#   using-expressions-and-contexts:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout Repository
+#         uses: actions/checkout@v2
+
+#       - name: Simple Expressions
+#         run: echo "${{ 1 }}"
+
+#       - name: string ecpression
+#         run: echo "${{ 'this is a string' }}"
+
+#       - name: Null Expression
+#         run: echo "${{ null }}"
+
+#       - name: Boolean Expression
+#         run: echo "${{ true }}"
+
+#       - name: Comparison Expression
+#         run: echo "${{ 1 > 2 }}"
+
+#       - name: Equality Expression
+#         run: echo "${{ 'string' == 'String' }}"
+
+#       - name: And Expression
+#         run: echo "${{ true && false }}"
+
+#       - name: Or Expression
+#         run: echo "${{ true || (false && true) }}"
+
+#       - name: Install jq
+#         run: sudo apt-get install -y jq
+
+#       - name: Dump GitHub Context
+#         run: echo '${{ toJson(github) }}' | jq '.'
+
+#       - name: Dump Job Context
+#         run: echo '${{ toJson(job) }}' | jq '.'
+
+#       - name: Dump Secrets Context
+#         run: echo '${{ toJson(secrets) }}' | jq '.'
+
+#       - name: Dump Steps Context
+#         run: echo '${{ toJson(steps) }}' | jq '.'
+
+#       - name: Dump Runner Context
+#         run: echo '${{ toJson(runner) }}' | jq '.'
+
 name: Expressions & Contexts
 on: [push, pull_request, issues, workflow_dispatch]
 jobs:
@@ -7,59 +58,24 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Simple Expressions
-        run: echo "${{ 1 }}"
-
-      - name: string ecpression
-        run: echo "${{ 'this is a string' }}"
-
-      - name: Null Expression
-        run: echo "${{ null }}"
-
-      - name: Boolean Expression
-        run: echo "${{ true }}"
-
-      - name: Comparison Expression
-        run: echo "${{ 1 > 2 }}"
-
-      - name: Equality Expression
-        run: echo "${{ 'string' == 'String' }}"
-
-      - name: And Expression
-        run: echo "${{ true && false }}"
-
-      - name: Or Expression
-        run: echo "${{ true || (false && true) }}"
+      - name: Expressions
+        run: |
+          echo "${{ 1 }}"
+          echo "${{ 'this is a string' }}"
+          echo "${{ null }}"
+          echo "${{ true }}"
+          echo "${{ 1 > 2 }}"
+          echo "${{ 'string' == 'String' }}"
+          echo "${{ true && false }}"
+          echo "${{ true || (false && true) }}"
 
       - name: Install jq
         run: sudo apt-get install -y jq
 
-      - name: Dump GitHub Context
-        run: echo '${{ toJson(github) }}' | jq '.'
-
-      - name: Dump Job Context
-        run: echo '${{ toJson(job) }}' | jq '.'
-
-      - name: Dump Secrets Context
-        run: echo '${{ toJson(secrets) }}' | jq '.'
-
-      - name: Dump Steps Context
-        run: echo '${{ toJson(steps) }}' | jq '.'
-
-      - name: Dump Runner Context
-        run: echo '${{ toJson(runner) }}' | jq '.'
-
-      #     echo "${{ 'this is a string' }}"
-      #     echo "${{ null }}"
-      #     echo "${{ true }}"
-      #     echo "${{ 1 > 2 }}"
-      #     echo "${{ 'string'  == 'String' }}"
-      #     echo "${{ true && false }}"
-      #     echo "${{ true || (false && true) }}"
-      # - name: Dump Contexts
-      #   run: |
-      #     echo "${{ toJson(github) }}"
-      #     echo "${{ toJson(job) }}"
-      #     echo "${{ toJson(secrets) }}"
-      #     echo "${{ toJson(steps) }}"
-      #     echo "${{ toJson(runner) }}"
+      - name: Dump Contexts
+        run: |
+          echo '${{ toJson(github) }}' | jq '.'
+          echo '${{ toJson(job) }}' | jq '.'
+          echo '${{ toJson(secrets) }}' | jq '.'
+          echo '${{ toJson(steps) }}' | jq '.'
+          echo '${{ toJson(runner) }}' | jq '.'
