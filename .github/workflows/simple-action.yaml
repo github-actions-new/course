@@ -6,6 +6,7 @@ jobs:
     steps: 
       - name: list files
         run: ls -a
-      - uses: action/version@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v2
       - name: list files after 
         run: ls -a

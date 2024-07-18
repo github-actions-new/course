@@ -12,6 +12,25 @@ jobs:
 
       - name: string ecpression
         run: echo "${{ 'this is a string' }}"
+
+      - name: Null Expression
+        run: echo "${{ null }}"
+
+      - name: Boolean Expression
+        run: echo "${{ true }}"
+
+      - name: Comparison Expression
+        run: echo "${{ 1 > 2 }}"
+
+      - name: Equality Expression
+        run: echo "${{ 'string' == 'String' }}"
+
+      - name: And Expression
+        run: echo "${{ true && false }}"
+
+      - name: Or Expression
+        run: echo "${{ true || (false && true) }}"
+
       #     echo "${{ 'this is a string' }}"
       #     echo "${{ null }}"
       #     echo "${{ true }}"
