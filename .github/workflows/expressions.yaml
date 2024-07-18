@@ -4,6 +4,7 @@ run-name: "expressions and events by @${{ github.actor }}, event: ${{ github.eve
 jobs:
   using-expressions-and-contexts:
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
