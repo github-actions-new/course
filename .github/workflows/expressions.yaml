@@ -31,14 +31,24 @@ jobs:
       - name: Or Expression
         run: echo "${{ true || (false && true) }}"
 
-      - name: Dump Contexts
-        run: |
-          echo "${{ toJson(github) }}"
-          echo "${{ toJson(job) }}"
-          echo "${{ toJson(secrets) }}"
-          echo "${{ toJson(steps) }}"
-          echo "${{ toJson(runner) }}"
-          
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Dump GitHub Context
+        run: echo '${{ toJson(github) }}' | jq '.'
+
+      - name: Dump Job Context
+        run: echo '${{ toJson(job) }}' | jq '.'
+
+      - name: Dump Secrets Context
+        run: echo '${{ toJson(secrets) }}' | jq '.'
+
+      - name: Dump Steps Context
+        run: echo '${{ toJson(steps) }}' | jq '.'
+
+      - name: Dump Runner Context
+        run: echo '${{ toJson(runner) }}' | jq '.'
+
       #     echo "${{ 'this is a string' }}"
       #     echo "${{ null }}"
       #     echo "${{ true }}"
