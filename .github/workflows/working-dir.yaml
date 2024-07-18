@@ -22,6 +22,3 @@ jobs:
         run: |
           Get-Location
           dir
-          echo $env:GTIHUB_SHA
-          echo $env:GITHUB_REPOSITORY
-          echo $env:GITHUB_WORKSPACE
