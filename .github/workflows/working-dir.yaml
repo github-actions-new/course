@@ -1,24 +1,31 @@
-name: working dirs & shells
+name: Working Dirs & Shells
 on: [push]
 defaults:
   run:
     shell: bash
 jobs: 
   display-wd-info: 
-    runs-on: ununtu-latest
+    runs-on: ubuntu-latest
     steps:
-      - name: display working dir and list of files
-        run: 
-          # pwd
-          # ls -a
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Display Working Dir and List of Files
+        run: |
+          pwd
+          ls -a
           echo "hello"
+
   display-wd-info-windows:
     runs-on: windows-latest
     defaults:
       run:
         shell: pwsh
     steps:
-      - name: display working dir and list of files
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Display Working Dir and List of Files
         run: |
           Get-Location
           dir
