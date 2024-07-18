@@ -9,8 +9,8 @@ jobs:
     steps:
       - name: display working dir and list of files
         run: 
-          pwd
-          ls -a
+          # pwd
+          # ls -a
           echo "hello"
   display-wd-info-windows:
     runs-on: windows-latest
