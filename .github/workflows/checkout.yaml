@@ -7,11 +7,6 @@ jobs:
     steps:
       - name: list files before
         run: ls -a
-      - name: checkout
-        run: |
-           git init
-           git remote add origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKRN }}@github.com/$GITHUB_REPOSITORY.git"
-           git frtch origin
-           git checkout main
       - name: list files 
         run: ls -a
+# some commds regards error are throwing errors so not included 
